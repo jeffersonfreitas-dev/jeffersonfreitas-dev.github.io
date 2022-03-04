@@ -47,7 +47,7 @@
     <header class="masthead bg-primary text-white text-center" id="page-top">
 
         <div class="container d-flex align-items-center flex-column">
-            <h1 class="masthead-heading mb-0">Survey 1.0</h1>
+            <h1 class="masthead-heading mb-0">Stock Manager</h1>
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="divider-custom-line"></div>
             </div>
-            <h2 class="masthead-subheading mb-3">SISTEMA PARA REALIZAÇÃO DE PESQUISA DE SATISFAÇÃO DE CLIENTES </h2>
+            <h2 class="masthead-subheading mb-3">SISTEMA PARA GERENCIAMENTO DE ALMOXARIFADO E ESTOQUES</h2>
         </div>
     </header>
 
@@ -90,19 +90,40 @@
                                 <h5 class="mb-0">
                                     <button class="btn btn-link text-uppercase" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Pesquisa de Satisfação
+                                        Produtos e Estoque
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordion">
                                 <div class="card-body">
-                                    • Sistema configurado para ser exibido em tablets fixado em guichês de atendimento.
-                                    <br>
-                                    • Opção de monstagem das perguntas e respostas personatilizadas, dependendo da
-                                    necessidade.<br>
-                                    • Ao finalizar um questionário, uma nova pesquisa é gerado automáticamente ficando
-                                    disponível para o próximo cliente. <br>
+                                    • Pesquisas de produtos com várias opções de filtro.<br>
+                                    • Controle de quantidade minima para aviso de produtos abaixo da quantidade
+                                    estipulada.<br>
+                                    • Controle de estoque separado por empresa.<br>
+                                    • Tela de detalhes com informações de cadastros, estoque e movimentações.<br>
+                                    • Histórico do produto com todas as movimentações (compras e saídas de
+                                    solicitações).<br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed text-uppercase" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Compras (Entrada)
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordion">
+                                <div class="card-body">
+                                    • Pesquisas de compras com várias opções de filtro.<br>
+                                    • Opção de anexar a nota fiscal da compra para facilitar futuras consultas.<br>
+                                    • Entrada automática no estoque do produto no ato do cadastro.<br>
+                                    • Tela de detalhes com informações de cadastros, estoque e fornecedores.<br>
                                 </div>
                             </div>
                         </div>
@@ -113,18 +134,18 @@
                                     <button class="btn btn-link collapsed text-uppercase" data-toggle="collapse"
                                         data-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        Perguntas e Respostas
+                                        Solicitações de Saída
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                 data-parent="#accordion">
                                 <div class="card-body">
-                                    • Pesquisas de perguntas e respostas com várias opções de filtro.<br>
-                                    • Cadastro das perguntas vinculadas com as respostas disponibilizando questionários
-                                    personalizados.<br>
-                                    • Formulário de detalhes contendo todas as informações em relação ao
-                                    questionário.<br>
+                                    • Pesquisas de solicitações com várias opções de filtro.<br>
+                                    • Validação de estoque disponível para saída, evitando estoque negativo.<br>
+                                    • Filtro de produtos na hora da solicitação.<br>
+                                    • Baixa automática no estoque no ato da solicitação.<br>
+                                    • Tela de detalhes com informações de cadastros, estoque e solicitações.<br>
                                 </div>
                             </div>
                         </div>
@@ -134,20 +155,19 @@
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed text-uppercase" data-toggle="collapse"
                                         data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Questionários
+                                        Relatórios
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
                                 data-parent="#accordion">
                                 <div class="card-body">
-                                    • Pesquisas dos questionários com várias opções de filtro.<br>
-                                    • Criação de questionários com perguntas e respostas automáticas.<br>
-                                    • Tela de detalhes com informações detalhadas do questionário e responstas.<br>
-                                    • Opção de impressão de relatórios simplificado e detalhado.<br>
-                                    • Questionários vinculados aos atendentes, tendo informações detalhadas do
-                                    atendimento
-                                    do mesmo.<br>
+                                    • Emissão de solicitações com filtro de empresa, setor, solicitante e outros.<br>
+                                    • Relatório detalhado das solicitações.<br>
+                                    • Comprovante de entrega de mercadoria.<br>
+                                    • Tela de detalhes com informações de cadastros, estoque e movimentações.<br>
+                                    • Histórico do produto com todas as movimentações (compras e saídas de
+                                    solicitações).<br>
                                 </div>
                             </div>
                         </div>
@@ -179,11 +199,12 @@
             <div class="row text-white">
                 <div class="col-lg-12 ml-auto">
                     <p class="lead"><br />
-                        • Java 8<br />
+                        • Java 11<br />
                         • Spring Boot<br />
-                        • Microserviços REST<br />
+                        • Spring Security<br />
                         • Spring Data JPA<br />
-                        • Banco de Dados PostgreSQL<br />
+                        • Banco de Dados MySQL<br />
+                        • Engine Thymeleaf<br />
                         • HTML, CSS e JavaScript<br />
                         • JQuery<br />
                         • Bootstrap<br />
@@ -216,17 +237,17 @@
             </div>
 
             <div class="row">
-                <div class="col-md-2 col-lg-2"></div>
-                <div class="col-md-8 col-lg-8">
+                <div class="col-md-1 col-lg-1"></div>
+                <div class="col-md-10 col-lg-10">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <ul class="list-group text-center">
                                     <li class="list-group-item font-weight-bold  text-uppercase  text-primary"
                                         style="border-bottom-left-radius: 0.0rem; border-bottom-right-radius: 0.0rem">
-                                        Realização da Pesquisa</li>
+                                        Gerenciamento e Estoque</li>
                                 </ul>
-                                <img class="d-block w-100" src="../../assets/img/portfolio/gifs/survey.gif" alt="Login"
+                                <img class="d-block w-100" src="../../assets/img/portfolio/gifs/stock01.gif" alt="Login"
                                     style="border: 0.125rem solid rgba(0,0,0,.125);border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem">
                             </div>
 
@@ -234,9 +255,20 @@
                                 <ul class="list-group text-center">
                                     <li class="list-group-item font-weight-bold  text-uppercase  text-primary"
                                         style="border-bottom-left-radius: 0.0rem; border-bottom-right-radius: 0.0rem">
-                                        Gerenciamento e Relatórios</li>
+                                        Realização Solicitações</li>
                                 </ul>
-                                <img class="d-block w-100" src="../../assets/img/portfolio/gifs/survey-relatorio.gif"
+                                <img class="d-block w-100" src="../../assets/img/portfolio/gifs/stock-solicitacao.gif"
+                                    alt="Login"
+                                    style="border: 0.125rem solid rgba(0,0,0,.125);border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem">
+                            </div>
+
+                            <div class="carousel-item">
+                                <ul class="list-group text-center">
+                                    <li class="list-group-item font-weight-bold  text-uppercase  text-primary"
+                                        style="border-bottom-left-radius: 0.0rem; border-bottom-right-radius: 0.0rem">
+                                        Relatórios</li>
+                                </ul>
+                                <img class="d-block w-100" src="../../assets/img/portfolio/gifs/stock-relatorios.gif"
                                     alt="Login"
                                     style="border: 0.125rem solid rgba(0,0,0,.125);border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem">
                             </div>
@@ -254,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-lg-2"></div>
+                <div class="col-md-1 col-lg-1"></div>
             </div>
         </div>
     </section>
