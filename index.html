@@ -19,200 +19,354 @@
     <script type="text/babel">
         const { motion, AnimatePresence } = window.Motion || window.FramerMotion;
 
+        // Language selector based on URL parameter
+        const getLanguageFromUrl = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('lang') === 'en' ? 'en' : 'pt';
+        };
+
         const ResumeContent = () => {
-                const skills = ["Java", "Golang", "Python", "Javascript", "Spring Framework", "Cloud AWS / GCP / OCI", "Angular","VueJS", "HTML / CSS" , "Docker / Kubernetes", "MySQL", "Oracle", "Postgresql", "NoSQL MongoDB / Firestore / DynamoDB", "DevOps", "Messageria RabbitMQ / Apache Kafka", "CI/CD / Github Actions", "Kanban / Scrum"];
+            const lang = getLanguageFromUrl();
+            
+            // Skills (common for both languages)
+            const skills = ["Java", "Golang", "Python", "Javascript", "Spring Framework", "Cloud AWS / GCP / OCI", "Angular","VueJS", "HTML / CSS" , "Docker / Kubernetes", "MySQL", "Oracle", "Postgresql", "NoSQL MongoDB / Firestore / DynamoDB", "DevOps", "Messaging RabbitMQ / Apache Kafka", "CI/CD / Github Actions", "Kanban / Scrum"];
 
-                return (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="min-h-screen bg-gray-100 py-2 print:py-0">
-                        <div className="page-container shadow-2xl mx-auto bg-white p-5 max-w-[210mm] text-black border border-transparent">
+            // Portuguese content
+            const ptContent = {
+                name: "ANTONIO JEFFERSON M FREITAS",
+                title: "Software Engineer",
+                profile: {
+                    title: "Perfil Profissional",
+                    text: "Engenheiro/Arquiteto de Software com forte especialização em Backend (Java/Spring e Golang), atuando no desenvolvimento de soluções escaláveis, resilientes e orientadas a boas práticas de engenharia. Possuo sólida experiência em Arquitetura de Software, Microsserviços, APIs REST e sistemas distribuídos. Atuo em todo o ciclo de desenvolvimento, desde a modelagem até a implantação em ambientes Cloud (AWS, GCP e OCI). Tenho conhecimentos em frontend (Angular e Vue.js) e práticas de DevOps, incluindo CI/CD e containerização com Docker e Kubernetes. Perfil analítico, com foco em performance, segurança e escalabilidade."
+                },
+                skills: {
+                    title: "Competências Técnicas"
+                },
+                experience: {
+                    title: "Histórico Profissional",
+                    items: [
+                        {
+                            position: "# Software Engineer Specialist AWS",
+                            period: "JUL 2025 - Presente",
+                            company: "NTT DATA Europe & Latam (Uberlândia - MG)",
+                            description: "Atuando como Software Engineer, contribuí para a otimização de APIs com integrações em AWS, reduzindo significativamente o tempo de resposta e melhorando a experiência do cliente. Apoiei a squad como engenheiro de dados, auxiliando em demandas relacionadas a processamento e análise de alto volume de dados. Refatorei um projeto com IA, tornando o código mais legível, organizado e de fácil manutenção. Trabalhei em ambientes Cloud, aplicando boas práticas de desenvolvimento, integração contínua e colaboração ágil para entrega de soluções escaláveis e performáticas."
+                        },
+                        {
+                            position: "# Senior Software Engineer",
+                            period: "JUL 2018 - Presente",
+                            company: "Ajeff Soluções em TI (Self-employed)",
+                            description: "Atuei na criação de projetos estratégicos desde a concepção até o deploy, conduzindo todo o ciclo de desenvolvimento e garantindo entregas alinhadas às necessidades de cada cliente. Desenvolvi sistemas de controle financeiro e de estoque, aplicativo para operadora de planos de saúde com telemedicina e integração com gateways de pagamento, além de aplicativo nutricional com uso de IA para coleta alimentar e monitoramento glicêmico. Estruturei soluções com arquitetura escalável em Java (Spring Boot) e Python, bancos PostgreSQL, MySQL e Oracle, além de interfaces modernas em Vue.js e Angular. Implementei infraestrutura em AWS (EC2, S3, DynamoDB, Lambda), assegurando alta disponibilidade, segurança e performance. Também atuei na captação e entendimento das demandas dos clientes, propondo soluções tecnológicas eficazes para impulsionar seus resultados."
+                        },
+                        {
+                            position: "# Software Engineer Fullstack",
+                            period: "NOV 2024 - JUL 2025",
+                            company: "First Decision (Brasilia - DF)",
+                            description: "Atuei como Desenvolvedor Full Stack na squad de modernização do portal institucional e do sistema interno da Secretaria do Patrimônio da União (SPU), contribuindo para a evolução de um sistema legado para uma arquitetura mais modular e escalável. Fui responsável pela criação e refatoração de APIs REST em Java (Spring Boot), além da integração e melhorias no frontend em Angular. Implementei otimizações de performance, segurança e arquitetura, garantindo maior estabilidade e manutenibilidade da aplicação. Atendi demandas tanto de backend quanto de frontend, colaborando com equipes multidisciplinares para entregas contínuas e de alto impacto, utilizando também Docker no ambiente de desenvolvimento e deploy."
+                        },
+                        {
+                            position: "# Software Engineer",
+                            period: "FEB 2021 - NOV 2024",
+                            company: "Unimed do Ceará (Fortaleza - CE)",
+                            description: "Atuei como Desenvolvedor de Software no time de Inovação, contribuindo para a melhoria de processos internos e externos e para a evolução da experiência de clientes e stakeholders. Desenvolvi soluções web e mobile utilizando Java (Spring), Python, JavaScript, TypeScript e Vue.js, com arquitetura baseada em microsserviços RESTful. Implementei integrações com gateways de pagamento, mensageria com RabbitMQ e práticas de observabilidade com Grafana e Prometheus. Estruturei pipelines em GitLab CI/CD, conteinerização com Docker e deploy em ambiente AWS. Também participei ativamente das iniciativas de Segurança da Informação e adequação à LGPD, fortalecendo a conformidade e a governança das soluções."
+                        },
+                        {
+                            position: "# Analista Financeiro/Administrativo",
+                            period: "JAN 2012 - FEB 2021",
+                            company: "Unimed Centro Sul Ceará (Iguatu - CE)",
+                            description: "Atuei como responsável pelos controles financeiros e contábeis, execução de pagamentos e elaboração de relatórios gerenciais, com foco na automação e otimização de processos. Desenvolvi um sistema interno de controle de pagamentos que reduziu em dois dias o prazo de emissão, tornando o processo mais ágil, consistente e com maior precisão de dados. Automatizei planilhas, dashboards e relatórios gerenciais, reduzindo em até uma semana o tempo de entrega das informações à gerência. Paralelamente às atividades financeiras, desenvolvi soluções de software para aprimorar os processos internos e aumentar a eficiência operacional da empresa."
+                        }
+                    ]
+                },
+                projects: {
+                    title: "Projetos",
+                    items: [
+                        {
+                            name: "Anpia Assistênte de Saúde",
+                            link: "anpia.jeffersonfreitas.dev",
+                            description: "Atuei na criação completa de um aplicativo, sendo responsável pelo desenvolvimento do frontend em Vue.js e do backend em Java e Python. Estruturei e configurei todo o ambiente de produção na AWS, utilizando CloudFront (CDN), Load Balancer com Auto Scaling para garantir escalabilidade e elasticidade, além de integração com DynamoDB. Realizei o registro e configuração de domínio via Cloudflare e implementei controle de autenticação e autorização com AWS Cognito. Conduzi o projeto com foco em alta disponibilidade, segurança, performance e facilidade de manutenção da aplicação."
+                        },
+                        {
+                            name: "Simed Controle Geral",
+                            link: "portfolio.simed",
+                            description: "Desenvolvi do zero um sistema completo de gestão empresarial (financeiro, estoque, pesquisa com clientes, colaboradores e outros módulos), realizando levantamento de requisitos diretamente com o cliente e conduzindo todo o ciclo de desenvolvimento. A aplicação foi construída em Java, com frontend em Thymeleaf, banco de dados MySQL e deploy em servidor próprio utilizando Tomcat. Implementei controle de acesso, responsabilidades por perfil e mecanismos de segurança para garantir integridade e confiabilidade das informações. O sistema está em uso contínuo há mais de 8 anos, apoiando as operações diárias da empresa."
+                        },
+                        {
+                            name: "Mais Saúde PET",
+                            link: "portfolio.mais-saude-pet",
+                            description: "Integrei a equipe assumindo majoritariamente o backend em Java, com forte atuação na integração com serviços AWS, como Cognito para autenticação e DynamoDB para persistência de dados. Fui responsável pela integração com gateways de pagamento, garantindo segurança, integridade das transações e conformidade com boas práticas. Atuei também no frontend, implementando funcionalidades voltadas à melhoria da experiência do usuário. Realizei integrações com APIs externas de agendamento e participei do processo de deploy, assegurando estabilidade e qualidade nas entregas."
+                        },
+                        {
+                            name: "MotoGestor",
+                            link: "portfolio.motogestor",
+                            description: "Desenvolvi, como projeto de estudos, um sistema completo para gestão de oficina mecânica, contemplando cadastro de clientes, mecânicos, veículos, ordens de serviço, controle de caixa, extratos e demais rotinas operacionais. A aplicação foi construída com Vue.js no frontend, Java no backend e banco de dados PostgreSQL, estruturada com foco em boas práticas de mercado, organização em camadas, segurança, validações e arquitetura bem definida. O projeto foi utilizado como laboratório para aplicar padrões, técnicas modernas de desenvolvimento e princípios de código limpo e escalável."
+                        },
+                        {
+                            name: "Muitos Outros",
+                            link: "jeffersonfreitas.dev",
+                            description: "Em meu portfólio é possível encontrar diversos outros projetos desenvolvidos ao longo da minha carreira, abrangendo diferentes segmentos e níveis de complexidade. Essas experiências reforçam minha atuação prática na criação de soluções completas, aplicando boas práticas de arquitetura, desenvolvimento, segurança e escalabilidade, sempre com foco em geração de valor e resolução eficiente de problemas."
+                        }
+                    ]
+                },
+                certifications: {
+                    title: "Certificações",
+                    official: "Oficiais",
+                    courses: "Cursos",
+                    items: {
+                        official: [
+                            { name: "AWS Developer Associate", url: "https://www.credly.com/badges/166a3c19-686f-4657-8a0a-1e0fead2631b/linked_in_profile" },
+                            { name: "Oracle OCI", url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=1BDF24F7B64546C773C503B8BCC03EE2B56D825BAA491F44A356D2368C40B83C" }
+                        ],
+                        courses1: [
+                            { name: "Apache Kafka Event-Driven", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-3361ef31-41ab-4864-8118-5be4603978a4.pdf" },
+                            { name: "Spring Boot Expert", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-33ebfdcb-f821-435e-9646-31c70add8751.pdf" },
+                            { name: "GitLab CI - Pipelines Devops", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-1b6aa9f7-dbd3-407d-8feb-7089b7e01d48.pdf" },
+                            { name: "Spring Boot + ReactJS", url: "https://www.udemy.com/certificate/UC-960aa5f7-fbf9-46c8-a32f-239f842acc54/" },
+                            { name: "Explorando a Linguagem Javascript", url: "https://app.algaworks.com/certs/K6MAQ04WG1" },
+                            { name: "Angular", url: "https://loiane.training/certificado/I4hsV2LQmaYDSFHFzgxx" },
+                            { name: "AWS Serverless", url: "https://www.udemy.com/certificate/UC-433cd1d9-d0cb-40bb-bdf5-cf66cc65309b/" },                            
+                            { name: "Java Application Performance", url: "https://www.udemy.com/certificate/UC-6220d8b3-13bc-4f41-8fbb-8b477309a9a4/" },                            
+                            { name: "Spring Boot Microservices Spring", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-ded92a2f-4f0b-4735-96df-6f7aeee4f7ab.pdf"}                          
+                        ],
+                        courses2: [
+                            { name: "Programação Shell Script", url: "https://www.udemy.com/certificate/UC-06ab266c-9c96-4430-950c-76469ed11b8d/" },
+                            { name: "Oracle Cloud Infrasctructure", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-aafc65c2-4ca6-494f-8628-2028f2a16e0b.pdf" },
+                            { name: "Event-Driven CQRS, SAGA", url: "https://www.udemy.com/certificate/UC-819f5e99-d5d8-4231-a2a0-f8b78b463cf8/" },
+                            { name: "Python Avançado com IA", url: "http://udemy.com/certificate/UC-9588823e-b931-4dad-a969-77a0e8bb60bd/" },
+                            { name: "Vue Masterclass", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-8f1253be-5716-4c74-adb1-7c468e42b46d.pdf" },
+                            { name: "Modelagem de Dados UML", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-5ORI5SK0.pdf" },
+                            { name: "Banco de Dados Oracle", url: "https://www.udemy.com/certificate/UC-26f648da-1896-49f1-aee2-7656c4bbf7e5/" },                           
+                            { name: "Formação Engenharia de Dados", url: "https://www.udemy.com/certificate/UC-a367fa19-3b59-41e5-b243-e59eeb1a0471/" },                           
+                            { name: "OAuth2 in Spring Boot Applications", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-b769c943-1af4-4a9f-a46b-269f94ff5336.pdf" }                           
+                        ]
+                    }
+                },
+                education: {
+                    title: "Formação",
+                    items: [
+                        { degree: "Pós Graduação Computação Quântica", institution: "Senai Cimatec", period: "2025 - 2027" },
+                        { degree: "Pós Graduação Arquitetura Projetos Cloud", institution: "Faculdade Estácio de Sá", period: "2022 - 2024" },
+                        { degree: "Pós Graduação Segurança da Informação", institution: "Faculdade Focus", period: "2021 - 2023" },
+                        { degree: "Análise e Desenvolvimento de Sistemas", institution: "Centro Universitário Maringá - Unicesumar", period: "2018 - 2020" },
+                        { degree: "Graduação Administração Empresas", institution: "Faculdade Estácio de Sá", period: "2016 - 2020" }
+                    ]
+                }
+            };
 
-                            <header className="text-center border-b-2 border-black pb-1 mb-2">
-                                <h1 className="text-xl font-black text-black tracking-tighter uppercase leading-none">ANTONIO JEFFERSON M FREITAS</h1>
-                                <h2 className="text-[10px] font-bold text-black my-0.5 uppercase tracking-widest">Software Engineer</h2>
-                                <div className="flex flex-wrap justify-center gap-x-2 text-[8px] font-bold text-black">
-                                    <a href="mailto:jefferson.dev21@gmail.com" className="underline">jefferson.dev21@gmail.com</a> |
-                                    <a href="https://www.linkedin.com/in/jefferson-freitas" target="_blank" className="underline">linkedin.com/in/jefferson-freitas</a> |
-                                    <a href="https://jeffersonfreitas.dev" target="_blank" className="underline">jeffersonfreitas.dev</a> |
-                                    <a href="https://github.com/jeffersonfreitas-dev" target="_blank" className="underline">github.com/jeffersonfreitas-dev</a>
+            // English content
+            const enContent = {
+                name: "ANTONIO JEFFERSON M FREITAS",
+                title: "Software Engineer",
+                profile: {
+                    title: "Professional Profile",
+                    text: "Software Engineer/Architect with strong specialization in Backend (Java/Spring and Golang), working on the development of scalable, resilient solutions oriented to engineering best practices. I have solid experience in Software Architecture, Microservices, REST APIs, and distributed systems. I work throughout the development cycle, from modeling to deployment in Cloud environments (AWS, GCP, and OCI). I have knowledge in frontend (Angular and Vue.js) and DevOps practices, including CI/CD and containerization with Docker and Kubernetes. Analytical profile, focused on performance, security, and scalability."
+                },
+                skills: {
+                    title: "Technical Skills"
+                },
+                experience: {
+                    title: "Professional Experience",
+                    items: [
+                        {
+                            position: "# Software Engineer Specialist AWS",
+                            period: "JUL 2025 - Present",
+                            company: "NTT DATA Europe & Latam (Uberlândia - MG)",
+                            description: "Working as a Software Engineer, I contributed to the optimization of APIs with AWS integrations, significantly reducing response time and improving customer experience. I supported the squad as a data engineer, assisting with demands related to high-volume data processing and analysis. I refactored an AI project, making the code more readable, organized, and easy to maintain. I worked in Cloud environments, applying best development practices, continuous integration, and agile collaboration to deliver scalable and performant solutions."
+                        },
+                        {
+                            position: "# Senior Software Engineer",
+                            period: "JUL 2018 - Present",
+                            company: "Ajeff Soluções em TI (Self-employed)",
+                            description: "I worked on the creation of strategic projects from conception to deployment, leading the entire development cycle and ensuring deliveries aligned with each client's needs. I developed financial and inventory control systems, an application for a health insurance operator with telemedicine and payment gateway integration, as well as a nutritional application using AI for food collection and glycemic monitoring. I structured solutions with scalable architecture in Java (Spring Boot) and Python, PostgreSQL, MySQL, and Oracle databases, plus modern interfaces in Vue.js and Angular. I implemented AWS infrastructure (EC2, S3, DynamoDB, Lambda), ensuring high availability, security, and performance. I also worked on capturing and understanding client demands, proposing effective technological solutions to boost their results."
+                        },
+                        {
+                            position: "# Software Engineer Fullstack",
+                            period: "NOV 2024 - JUL 2025",
+                            company: "First Decision (Brasilia - DF)",
+                            description: "I worked as a Full Stack Developer in the squad modernizing the institutional portal and internal system of the Secretariat of Union Heritage (SPU), contributing to the evolution of a legacy system to a more modular and scalable architecture. I was responsible for creating and refactoring REST APIs in Java (Spring Boot), as well as integrating and improving the frontend in Angular. I implemented performance, security, and architecture optimizations, ensuring greater stability and maintainability of the application. I handled both backend and frontend demands, collaborating with multidisciplinary teams for continuous, high-impact deliveries, also using Docker in the development and deployment environment."
+                        },
+                        {
+                            position: "# Software Engineer",
+                            period: "FEB 2021 - NOV 2024",
+                            company: "Unimed do Ceará (Fortaleza - CE)",
+                            description: "I worked as a Software Developer on the Innovation team, contributing to the improvement of internal and external processes and the evolution of customer and stakeholder experience. I developed web and mobile solutions using Java (Spring), Python, JavaScript, TypeScript, and Vue.js, with architecture based on RESTful microservices. I implemented integrations with payment gateways, messaging with RabbitMQ, and observability practices with Grafana and Prometheus. I structured pipelines in GitLab CI/CD, containerization with Docker, and deployment in the AWS environment. I also actively participated in Information Security initiatives and LGPD compliance, strengthening the conformity and governance of solutions."
+                        },
+                        {
+                            position: "# Financial/Administrative Analyst",
+                            period: "JAN 2012 - FEB 2021",
+                            company: "Unimed Centro Sul Ceará (Iguatu - CE)",
+                            description: "I was responsible for financial and accounting controls, payment execution, and preparation of management reports, focusing on process automation and optimization. I developed an internal payment control system that reduced issuance time by two days, making the process more agile, consistent, and with greater data accuracy. I automated spreadsheets, dashboards, and management reports, reducing information delivery time to management by up to a week. In parallel with financial activities, I developed software solutions to improve internal processes and increase the company's operational efficiency."
+                        }
+                    ]
+                },
+                projects: {
+                    title: "Projects",
+                    items: [
+                        {
+                            name: "Anpia Health Assistant",
+                            link: "anpia.jeffersonfreitas.dev",
+                            description: "I worked on the complete creation of an application, responsible for developing the frontend in Vue.js and the backend in Java and Python. I structured and configured the entire production environment on AWS, using CloudFront (CDN), Load Balancer with Auto Scaling to ensure scalability and elasticity, in addition to integration with DynamoDB. I performed domain registration and configuration via Cloudflare and implemented authentication and authorization control with AWS Cognito. I conducted the project focusing on high availability, security, performance, and ease of application maintenance."
+                        },
+                        {
+                            name: "Simed General Control",
+                            link: "portfolio.simed",
+                            description: "I developed from scratch a complete business management system (financial, inventory, customer surveys, employees, and other modules), gathering requirements directly with the client and leading the entire development cycle. The application was built in Java, with a Thymeleaf frontend, MySQL database, and deployment on a private server using Tomcat. I implemented access control, profile responsibilities, and security mechanisms to ensure information integrity and reliability. The system has been in continuous use for over 8 years, supporting the company's daily operations."
+                        },
+                        {
+                            name: "Mais Saúde PET",
+                            link: "portfolio.mais-saude-pet",
+                            description: "I joined the team taking on mostly the backend in Java, with strong involvement in integration with AWS services, such as Cognito for authentication and DynamoDB for data persistence. I was responsible for integrating with payment gateways, ensuring security, transaction integrity, and compliance with best practices. I also worked on the frontend, implementing features aimed at improving user experience. I performed integrations with external scheduling APIs and participated in the deployment process, ensuring stability and quality in deliveries."
+                        },
+                        {
+                            name: "MotoGestor",
+                            link: "portfolio.motogestor",
+                            description: "As a study project, I developed a complete system for mechanical workshop management, including customer registration, mechanics, vehicles, service orders, cash control, statements, and other operational routines. The application was built with Vue.js on the frontend, Java on the backend, and PostgreSQL database, structured with a focus on market best practices, layered organization, security, validations, and well-defined architecture. The project was used as a laboratory to apply patterns, modern development techniques, and principles of clean and scalable code."
+                        },
+                        {
+                            name: "Many Others",
+                            link: "jeffersonfreitas.dev",
+                            description: "In my portfolio, you can find several other projects developed throughout my career, covering different segments and levels of complexity. These experiences reinforce my practical work in creating complete solutions, applying best practices in architecture, development, security, and scalability, always focusing on value generation and efficient problem-solving."
+                        }
+                    ]
+                },
+                certifications: {
+                    title: "Certifications",
+                    official: "Official",
+                    courses: "Courses",
+                    items: {
+                        official: [
+                            { name: "AWS Developer Associate", url: "https://www.credly.com/badges/166a3c19-686f-4657-8a0a-1e0fead2631b/linked_in_profile" },
+                            { name: "Oracle OCI", url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=1BDF24F7B64546C773C503B8BCC03EE2B56D825BAA491F44A356D2368C40B83C" }
+                        ],
+                        courses1: [
+                            { name: "Apache Kafka Event-Driven", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-3361ef31-41ab-4864-8118-5be4603978a4.pdf" },
+                            { name: "Spring Boot Expert", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-33ebfdcb-f821-435e-9646-31c70add8751.pdf" },
+                            { name: "GitLab CI - Pipelines Devops", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-1b6aa9f7-dbd3-407d-8feb-7089b7e01d48.pdf" },
+                            { name: "Spring Boot + ReactJS", url: "https://www.udemy.com/certificate/UC-960aa5f7-fbf9-46c8-a32f-239f842acc54/" },
+                            { name: "Exploring Javascript Language", url: "https://app.algaworks.com/certs/K6MAQ04WG1" },
+                            { name: "UML Data Modeling", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-5ORI5SK0.pdf" },
+                            { name: "Oracle Database - SQL + PLSQL", url: "https://www.udemy.com/certificate/UC-26f648da-1896-49f1-aee2-7656c4bbf7e5/" },
+                            { name: "Data Engineer Formation", url: "https://www.udemy.com/certificate/UC-a367fa19-3b59-41e5-b243-e59eeb1a0471/" },                           
+                            { name: "OAuth2 in Spring Boot Applications", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-b769c943-1af4-4a9f-a46b-269f94ff5336.pdf" }                                                        
+                        ],
+                        courses2: [
+                            { name: "Shell Script Programming", url: "https://www.udemy.com/certificate/UC-06ab266c-9c96-4430-950c-76469ed11b8d/" },
+                            { name: "Oracle Cloud Infrastructure", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-aafc65c2-4ca6-494f-8628-2028f2a16e0b.pdf" },
+                            { name: "Event-Driven CQRS, SAGA", url: "https://www.udemy.com/certificate/UC-819f5e99-d5d8-4231-a2a0-f8b78b463cf8/" },
+                            { name: "Advanced Python with AI", url: "http://udemy.com/certificate/UC-9588823e-b931-4dad-a969-77a0e8bb60bd/" },
+                            { name: "Vue Masterclass", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-8f1253be-5716-4c74-adb1-7c468e42b46d.pdf" },
+                            { name: "Angular", url: "https://loiane.training/certificado/I4hsV2LQmaYDSFHFzgxx" },
+                            { name: "AWS Serverless", url: "https://www.udemy.com/certificate/UC-433cd1d9-d0cb-40bb-bdf5-cf66cc65309b/" },
+                            { name: "Java Application Performance", url: "https://www.udemy.com/certificate/UC-6220d8b3-13bc-4f41-8fbb-8b477309a9a4/" },                            
+                            { name: "Spring Boot Microservices Spring", url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-ded92a2f-4f0b-4735-96df-6f7aeee4f7ab.pdf"}                                                         
+                        ],
+                    }
+                },
+                education: {
+                    title: "Education",
+                    items: [
+                        { degree: "Postgraduate in Quantum Computing", institution: "Senai Cimatec", period: "2025 - 2027" },
+                        { degree: "Postgraduate in Cloud Architecture", institution: "Faculdade Estácio de Sá", period: "2022 - 2024" },
+                        { degree: "Postgraduate in Information Security", institution: "Faculdade Focus", period: "2021 - 2023" },
+                        { degree: "Systems Analysis and Development", institution: "Centro Universitário Maringá - Unicesumar", period: "2018 - 2020" },
+                        { degree: "Business Administration", institution: "Faculdade Estácio de Sá", period: "2016 - 2020" }
+                    ]
+                }
+            };
 
+            // Select content based on language
+            const content = lang === 'en' ? enContent : ptContent;
+
+            return (
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="min-h-screen bg-gray-100 py-2 print:py-0">
+                    <div className="page-container shadow-2xl mx-auto bg-white p-5 max-w-[210mm] text-black border border-transparent">
+
+                        <header className="text-center border-b-2 border-black pb-1 mb-2">
+                            <h1 className="text-xl font-black text-black tracking-tighter uppercase leading-none">{content.name}</h1>
+                            <h2 className="text-[10px] font-bold text-black my-0.5 uppercase tracking-widest">{content.title}</h2>
+                            <div className="flex flex-wrap justify-center gap-x-2 text-[8px] font-bold text-black">
+                                <a href="mailto:jefferson.dev21@gmail.com" className="underline">jefferson.dev21@gmail.com</a> |
+                                <a href="https://www.linkedin.com/in/jefferson-freitas" target="_blank" className="underline">linkedin.com/in/jefferson-freitas</a> |
+                                <a href="https://jeffersonfreitas.dev" target="_blank" className="underline">jeffersonfreitas.dev</a> |
+                                <a href="https://github.com/jeffersonfreitas-dev" target="_blank" className="underline">github.com/jeffersonfreitas-dev</a>
+                            </div>
+                        </header>
+
+                        <main className="space-y-2">
+                            <section>
+                                <h3 className="uppercase border-b border-black font-black text-[10px] mb-0.5">{content.profile.title}</h3>
+                                <p className="text-[9px] leading-tight text-justify text-gray-800">
+                                    {content.profile.text}
+                                </p>
+                            </section>
+
+                            <section>
+                                <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">{content.skills.title}</h3>
+                                <div className="flex flex-wrap gap-1">
+                                    {skills.map(skill => (
+                                        <span key={skill} className="bg-white text-black px-1 py-0 text-[7px] font-bold border border-gray-300 uppercase leading-none">{skill}</span>
+                                    ))}
                                 </div>
-                            </header>
-
-                            <main className="space-y-2">
-                                <section>
-                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-0.5">Perfil Profissional</h3>
-                                    <div className="text-[10px] font-bold italic mb-0.5"></div>
-                                    <p className="text-[9px] leading-tight text-justify text-gray-800">
-                                        Engenheiro/Arquiteto de Software com forte especialização em Backend (Java/Spring e Golang), atuando no desenvolvimento de soluções escaláveis, resilientes e orientadas a boas práticas de engenharia. Possuo sólida experiência em Arquitetura de Software, Microsserviços, APIs REST e sistemas distribuídos. Atuo em todo o ciclo de desenvolvimento, desde a modelagem até a implantação em ambientes Cloud (AWS, GCP e OCI). Tenho conhecimentos em frontend (Angular e Vue.js) e práticas de DevOps, incluindo CI/CD e containerização com Docker e Kubernetes. Perfil analítico, com foco em performance, segurança e escalabilidade.
-                                    </p>
-                                </section>
-
-                                <section>
-                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Competências Técnicas</h3>
-                                    <div className="flex flex-wrap gap-1">
-                                        {skills.map(skill => (
-                                            <span key={skill} className="bg-white text-black px-1 py-0 text-[7px] font-bold border border-gray-300 uppercase leading-none">{skill}</span>
-                                        ))}
-                                    </div>
-                                    
-                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Histórico Profissional</h3>
-
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Software Engineer Specialist AWS</span>
-                                            <span className="text-gray-600">JUL 2025 - Presente</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">NTT DATA Europe & Latam (Uberlândia - MG)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuando como Software Engineer, contribuí para a otimização de APIs com integrações em AWS, reduzindo significativamente o tempo de resposta e melhorando a experiência do cliente. Apoiei a squad como engenheiro de dados, auxiliando em demandas relacionadas a processamento e análise de alto volume de dados. Refatorei um projeto com IA, tornando o código mais legível, organizado e de fácil manutenção. Trabalhei em ambientes Cloud, aplicando boas práticas de desenvolvimento, integração contínua e colaboração ágil para entrega de soluções escaláveis e performáticas.
-                                        </p>
-                                    </div>
-
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Senior Software Engineer</span>
-                                            <span className="text-gray-600">JUL 2018 - Presente</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">Ajeff Soluções em TI (Self-employed)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei na criação de projetos estratégicos desde a concepção até o deploy, conduzindo todo o ciclo de desenvolvimento e garantindo entregas alinhadas às necessidades de cada cliente. Desenvolvi sistemas de controle financeiro e de estoque, aplicativo para operadora de planos de saúde com telemedicina e integração com gateways de pagamento, além de aplicativo nutricional com uso de IA para coleta alimentar e monitoramento glicêmico. Estruturei soluções com arquitetura escalável em Java (Spring Boot) e Python, bancos PostgreSQL, MySQL e Oracle, além de interfaces modernas em Vue.js e Angular. Implementei infraestrutura em AWS (EC2, S3, DynamoDB, Lambda), assegurando alta disponibilidade, segurança e performance. Também atuei na captação e entendimento das demandas dos clientes, propondo soluções tecnológicas eficazes para impulsionar seus resultados.
-                                        </p>
-                                    </div>
-
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Software Engineer Fullstack</span>
-                                            <span className="text-gray-600">NOV 2024 - JUL 2025</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">First Decision (Brasilia - DF)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei como Desenvolvedor Full Stack na squad de modernização do portal institucional e do sistema interno da Secretaria do Patrimônio da União (SPU), contribuindo para a evolução de um sistema legado para uma arquitetura mais modular e escalável. Fui responsável pela criação e refatoração de APIs REST em Java (Spring Boot), além da integração e melhorias no frontend em Angular. Implementei otimizações de performance, segurança e arquitetura, garantindo maior estabilidade e manutenibilidade da aplicação. Atendi demandas tanto de backend quanto de frontend, colaborando com equipes multidisciplinares para entregas contínuas e de alto impacto, utilizando também Docker no ambiente de desenvolvimento e deploy.
-                                        </p>
-                                    </div>
-
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Software Engineer</span>
-                                            <span className="text-gray-600">FEB 2021 - NOV 2024</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">Unimed do Ceará (Fortaleza - CE)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei como Desenvolvedor de Software no time de Inovação, contribuindo para a melhoria de processos internos e externos e para a evolução da experiência de clientes e stakeholders. Desenvolvi soluções web e mobile utilizando Java (Spring), Python, JavaScript, TypeScript e Vue.js, com arquitetura baseada em microsserviços RESTful. Implementei integrações com gateways de pagamento, mensageria com RabbitMQ e práticas de observabilidade com Grafana e Prometheus. Estruturei pipelines em GitLab CI/CD, conteinerização com Docker e deploy em ambiente AWS. Também participei ativamente das iniciativas de Segurança da Informação e adequação à LGPD, fortalecendo a conformidade e a governança das soluções.
-                                        </p>
-                                    </div>
-
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Analista Financeiro/Administrativo</span>
-                                            <span className="text-gray-600">JAN 2012 - FEB 2021</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">Unimed Centro Sul Ceará (Iguatu - CE)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei como responsável pelos controles financeiros e contábeis, execução de pagamentos e elaboração de relatórios gerenciais, com foco na automação e otimização de processos. Desenvolvi um sistema interno de controle de pagamentos que reduziu em dois dias o prazo de emissão, tornando o processo mais ágil, consistente e com maior precisão de dados. Automatizei planilhas, dashboards e relatórios gerenciais, reduzindo em até uma semana o tempo de entrega das informações à gerência. Paralelamente às atividades financeiras, desenvolvi soluções de software para aprimorar os processos internos e aumentar a eficiência operacional da empresa.
-                                        </p>
-                                    </div>
-                                </section>
-
                                 
-                                
-                                
-                                <section>
-                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-1 print:pt-2">Projetos</h3>
-                                    <div className="grid grid-cols-1 gap-y-1.5">
+                                <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">{content.experience.title}</h3>
 
-                                        <div>
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="text-[9px] font-black uppercase">Anpia Assistênte de Saúde</span>
-                                                <a href="https://anpia.jeffersonfreitas.dev/" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">anpia.jeffersonfreitas.dev</a>
-                                            </div>
-                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
-                                                Atuei na criação completa de um aplicativo, sendo responsável pelo desenvolvimento do frontend em Vue.js e do backend em Java e Python. Estruturei e configurei todo o ambiente de produção na AWS, utilizando CloudFront (CDN), Load Balancer com Auto Scaling para garantir escalabilidade e elasticidade, além de integração com DynamoDB. Realizei o registro e configuração de domínio via Cloudflare e implementei controle de autenticação e autorização com AWS Cognito. Conduzi o projeto com foco em alta disponibilidade, segurança, performance e facilidade de manutenção da aplicação.
-                                            </p>
+                                {content.experience.items.map((exp, index) => (
+                                    <div key={index} className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span>{exp.position}</span>
+                                            <span className="text-gray-600">{exp.period}</span>
                                         </div>
-
-                                        <div>
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="text-[9px] font-black uppercase">Simed Controle Geral</span>
-                                                <a href="https://jeffersonfreitas.dev" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">portfolio.simed</a>
-                                            </div>
-                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
-                                                Desenvolvi do zero um sistema completo de gestão empresarial (financeiro, estoque, pesquisa com clientes, colaboradores e outros módulos), realizando levantamento de requisitos diretamente com o cliente e conduzindo todo o ciclo de desenvolvimento. A aplicação foi construída em Java, com frontend em Thymeleaf, banco de dados MySQL e deploy em servidor próprio utilizando Tomcat. Implementei controle de acesso, responsabilidades por perfil e mecanismos de segurança para garantir integridade e confiabilidade das informações. O sistema está em uso contínuo há mais de 8 anos, apoiando as operações diárias da empresa.
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="text-[9px] font-black uppercase">Mais Saúde PET</span>
-                                                <a href="https://jeffersonfreitas.dev" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">portfolio.mais-saude-pet</a>
-                                            </div>
-                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
-                                                Integrei a equipe assumindo majoritariamente o backend em Java, com forte atuação na integração com serviços AWS, como Cognito para autenticação e DynamoDB para persistência de dados. Fui responsável pela integração com gateways de pagamento, garantindo segurança, integridade das transações e conformidade com boas práticas. Atuei também no frontend, implementando funcionalidades voltadas à melhoria da experiência do usuário. Realizei integrações com APIs externas de agendamento e participei do processo de deploy, assegurando estabilidade e qualidade nas entregas.
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="text-[9px] font-black uppercase">MotoGestor</span>
-                                                <a href="https://jeffersonfreitas.dev" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">portfolio.motogestor</a>
-                                            </div>
-                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
-                                                Desenvolvi, como projeto de estudos, um sistema completo para gestão de oficina mecânica, contemplando cadastro de clientes, mecânicos, veículos, ordens de serviço, controle de caixa, extratos e demais rotinas operacionais. A aplicação foi construída com Vue.js no frontend, Java no backend e bancod e dados PostgreSQL, estruturada com foco em boas práticas de mercado, organização em camadas, segurança, validações e arquitetura bem definida. O projeto foi utilizado como laboratório para aplicar padrões, técnicas modernas de desenvolvimento e princípios de código limpo e escalável.
-                                            </p>
-                                        </div>
-                                        
-                                        <div>
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="text-[9px] font-black uppercase">Muitos Outros</span>
-                                                <a href="https://jeffersonfreitas.dev" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">jeffersonfreitas.dev</a>
-                                            </div>
-                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
-                                                Em meu portfólio é possível encontrar diversos outros projetos desenvolvidos ao longo da minha carreira, abrangendo diferentes segmentos e níveis de complexidade. Essas experiências reforçam minha atuação prática na criação de soluções completas, aplicando boas práticas de arquitetura, desenvolvimento, segurança e escalabilidade, sempre com foco em geração de valor e resolução eficiente de problemas.
-                                            </p>
-                                        </div>                                               
-
+                                        <div className="text-[10px] font-bold text-gray-700 italic">{exp.company}</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            {exp.description}
+                                        </p>
                                     </div>
-                                </section>
+                                ))}
+                            </section>
+                            
+                            <section>
+                                <h3 className="uppercase border-b border-black font-black text-[10px] mb-1 print:pt-2">{content.projects.title}</h3>
+                                <div className="grid grid-cols-1 gap-y-1.5">
+                                    {content.projects.items.map((project, index) => (
+                                        <div key={index}>
+                                            <div className="flex justify-between items-baseline">
+                                                <span className="text-[9px] font-black uppercase">{project.name}</span>
+                                                <a href={`https://${project.link}`} target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">{project.link}</a>
+                                            </div>
+                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
+                                                {project.description}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
 
                             <div className="grid grid-cols-12 gap-2">
                                 <div className="col-span-12 md:col-span-12 print:col-span-12">
                                     <section>
-                                        <h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">Certificações</h3>
+                                        <h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">{content.certifications.title}</h3>
                                         <div className="grid grid-cols-3 gap-x-2 text-[6.5px] font-bold leading-tight">
                                             <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Oficiais</p>
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">{content.certifications.official}</p>
                                                 <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://www.credly.com/badges/166a3c19-686f-4657-8a0a-1e0fead2631b/linked_in_profile" target="_blank"  >AWS Developer Associate</a>
-                                                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1BDF24F7B64546C773C503B8BCC03EE2B56D825BAA491F44A356D2368C40B83C" target="_blank"  >Oracle OCI</a>
+                                                    {content.certifications.items.official.map((cert, idx) => (
+                                                        <a key={idx} href={cert.url} target="_blank">{cert.name}</a>
+                                                    ))}
                                                 </div>
                                             </div>
                                             <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Cursos</p>
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">{content.certifications.courses}</p>
                                                 <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-3361ef31-41ab-4864-8118-5be4603978a4.pdf" target="_blank"  >Apache Kafka Event-Driven</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-33ebfdcb-f821-435e-9646-31c70add8751.pdf" target="_blank" >Spring Boot Expert</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-1b6aa9f7-dbd3-407d-8feb-7089b7e01d48.pdf" target="_blank"  >GitLab CI - Pipelines Devops</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-960aa5f7-fbf9-46c8-a32f-239f842acc54/" target="_blank" >Spring Boot + ReactJS</a>
-                                                    <a href="https://app.algaworks.com/certs/K6MAQ04WG1" target="_blank" >Explorando a Linguagem Javascript</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-06ab266c-9c96-4430-950c-76469ed11b8d/" target="_blank" >Programação Shell Script - Rotinas no Linux</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-aafc65c2-4ca6-494f-8628-2028f2a16e0b.pdf" target="_blank" >Oracle Cloud Infrasctructure</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-819f5e99-d5d8-4231-a2a0-f8b78b463cf8/" target="_blank" >Event-Driven CQRS, SAGA, Axon, Spring Boot</a>
-                                                    <a href="http://udemy.com/certificate/UC-9588823e-b931-4dad-a969-77a0e8bb60bd/" target="_blank" >Python Avançado com IA</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-8f1253be-5716-4c74-adb1-7c468e42b46d.pdf" target="_blank" >Vue Masterclass</a>
+                                                    {content.certifications.items.courses1.map((cert, idx) => (
+                                                        <a key={idx} href={cert.url} target="_blank">{cert.name}</a>
+                                                    ))}
                                                 </div>
                                             </div>
                                             <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Cursos</p>
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">{content.certifications.courses}</p>
                                                 <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-3M559VW9.pdf" target="_blank"  >Java Completo - Programação OO</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-5ORI5SK0.pdf" target="_blank" >Modelagem de Dados UML</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-26f648da-1896-49f1-aee2-7656c4bbf7e5/" target="_blank"  >Banco de Dados Oracle - SQL + PLSQL</a>
-                                                    <a href="https://loiane.training/certificado/I4hsV2LQmaYDSFHFzgxx" target="_blank" >Angular</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-433cd1d9-d0cb-40bb-bdf5-cf66cc65309b/" target="_blank" >AWS Serverless With RestAPI and CI/CD</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-6220d8b3-13bc-4f41-8fbb-8b477309a9a4/" target="_blank" >Java Application Performance</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-7642a44f-4624-4ed7-8f04-51d5af2f8744.pdf" target="_blank" >Fundamentals of Backend Engineering</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-ded92a2f-4f0b-4735-96df-6f7aeee4f7ab.pdf" target="_blank" >Spring Boot Microservices and Spring Cloud</a>
-                                                    <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-b769c943-1af4-4a9f-a46b-269f94ff5336.pdf" target="_blank" >OAuth2 in Spring Boot Applications</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-a367fa19-3b59-41e5-b243-e59eeb1a0471/" target="_blank" >Formação Engenharia de Dados</a>
+                                                    {content.certifications.items.courses2.map((cert, idx) => (
+                                                        <a key={idx} href={cert.url} target="_blank">{cert.name}</a>
+                                                    ))}
                                                 </div>
                                             </div>                                            
                                         </div>
@@ -220,33 +374,15 @@
                                 </div>
                                 <div className="col-span-12 md:col-span-12 print:col-span-12">
                                     <section>
-                                        <h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">Formação</h3>
+                                        <h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">{content.education.title}</h3>
                                         <div className="grid grid-cols-3 gap-x-2 text-[6.5px] font-bold leading-tight">
-                                            <div className="flex flex-col text-gray-600 normal-case mb-2">
-                                                <p className="leading-tight text-gray-800 normal-case font-bold">Pós Graduação Computação Quântica</p>
-                                                <p className="leading-tight text-gray-800 normal-case">Senai Cimatec</p>
-                                                <p className="leading-tight text-gray-800 normal-case">2025 - 2027</p>
-                                            </div>
-                                            <div className="flex flex-col text-gray-600 normal-case mb-2">
-                                                <p className="leading-tight text-gray-800 normal-case font-bold">Pós Graduação Arquitetura Projetos Cloud</p>
-                                                <p className="leading-tight text-gray-800 normal-case">Faculdade Estácio de Sá</p>
-                                                <p className="leading-tight text-gray-800 normal-case">2022 - 2024</p>
-                                            </div>  
-                                            <div className="flex flex-col text-gray-600 normal-case mb-2">
-                                                <p className="leading-tight text-gray-800 normal-case font-bold">Pós Graduação Segurança da Informação</p>
-                                                <p className="leading-tight text-gray-800 normal-case">Faculdade Focus</p>
-                                                <p className="leading-tight text-gray-800 normal-case">2021 - 2023</p>
-                                            </div>                                                                   
-                                            <div className="flex flex-col text-gray-600 normal-case mb-2">
-                                                <p className="leading-tight text-gray-800 normal-case font-bold">Análise e Desenvolvimento de Sistemas</p>
-                                                <p className="leading-tight text-gray-800 normal-case">Centro Universitário Maringá - Unicesumar</p>
-                                                <p className="leading-tight text-gray-800 normal-case">2018 - 2020</p>
-                                            </div>
-                                            <div className="flex flex-col text-gray-600 normal-case mb-2">
-                                                <p className="leading-tight text-gray-800 normal-case font-bold">Graduação Administração Empresas</p>
-                                                <p className="leading-tight text-gray-800 normal-case">Faculdade Estácio de Sá</p>
-                                                <p className="leading-tight text-gray-800 normal-case">2016 - 2020</p>
-                                            </div>                                            
+                                            {content.education.items.map((edu, index) => (
+                                                <div key={index} className="flex flex-col text-gray-600 normal-case mb-2">
+                                                    <p className="leading-tight text-gray-800 normal-case font-bold">{edu.degree}</p>
+                                                    <p className="leading-tight text-gray-800 normal-case">{edu.institution}</p>
+                                                    <p className="leading-tight text-gray-800 normal-case">{edu.period}</p>
+                                                </div>
+                                            ))}
                                         </div>
                                     </section>
                                 </div>                                                           
