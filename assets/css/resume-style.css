@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@300;400;600&display=swap');
+
+* { box-sizing: border-box; }
+body { background-color: #000507; color: #fff; font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; margin: 0; padding: 0; overflow-x: hidden; }
+
+.page-container { 
+    background: white; 
+    width: 100%;
+    max-width: 210mm; 
+    margin: 0 auto; 
+    padding: 20px;
+    min-height: 297mm;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+
+header h1 { font-size: 24pt !important; }
+header h2 { font-size: 10pt !important; margin: 5px 0 !important; }
+header div { font-size: 9pt !important; }
+h3 { font-size: 9pt !important; margin-top: 15px !important; margin-bottom: 5px !important; }
+p { font-size: 9pt !important; line-height: 1.6 !important; }
+.info-text { font-size: 9.5pt !important; line-height: 1.35 !important; }
+span.bg-white { font-size: 8.5pt !important; padding: 2px 5px !important; margin-bottom: 3px !important; display: inline-block !important; }
+li { font-size: 8.5pt !important; }
+.grid div section h3 { font-size: 10pt !important; }
+.grid div section div p { font-size: 7.5pt !important; }
+.grid div section div a { font-size: 7.5pt !important; }
+
+section { page-break-inside: avoid; margin-bottom: 10px !important; }
+.print-grid { display: grid !important; grid-template-columns: repeat(12, minmax(0, 1fr)) !important; gap: 1rem !important; }
+.print-col-4 { grid-column: span 4 / span 4 !important; }
+.print-col-8 { grid-column: span 8 / span 8 !important; }
+
+
+@media print { 
+    @page {
+        size: A4;
+        margin: 0mm;
+    }
+    .no-print { display: none !important; }
+    body { background: white !important; overflow: visible !important; }
+    .page-container { 
+        width: 210mm; 
+        height: auto !important; 
+        min-height: 0 !important;
+        padding: 10.6mm 4mm !important; 
+        margin: 0 !important;
+        box-shadow: none !important;
+        display: block !important;
+        background: white;
+    }
+    
+    header h1 { font-size: 20pt !important; }
+    header h2 { font-size: 9pt !important; margin: 5px 0 !important; }
+    header div { font-size: 8pt !important; }
+    h3 { font-size: 8pt !important; margin-top: 15px !important; margin-bottom: 5px !important; }
+    p { font-size: 7pt !important; line-height: 1.4 !important; }
+    .info-text { font-size: 8.5pt !important; line-height: 1.35 !important; }
+    span.bg-white { font-size: 7.5pt !important; padding: 2px 5px !important; margin-bottom: 3px !important; display: inline-block !important; }
+    li { font-size: 8.5pt !important; }
+    .grid div section h3 { font-size: 9pt !important; }
+    .grid div section div p { font-size: 7.5pt !important; }
+    .grid div section div a { font-size: 8.5pt !important; }
+    
+    section { page-break-inside: avoid; margin-bottom: 10px !important; }
+    .print-grid { display: grid !important; grid-template-columns: repeat(12, minmax(0, 1fr)) !important; gap: 1rem !important; }
+    .print-col-4 { grid-column: span 4 / span 4 !important; }
+    .print-col-8 { grid-column: span 8 / span 8 !important; }
+
+    a { color: black !important; text-decoration: none !important; }
+}
+
+
+.link-style { color: #000000; text-decoration: underline; }
+.sidebar-text { font-size: 10.80rem; line-height: 1.8; }
+.sidebar-cert-text { font-size: 10.78rem; line-height: 1.8; }
+
+.light-rays-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.white-out { position: fixed; inset: 0; background: white; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 1.5s ease-in; }
+.white-out.active { opacity: 1; }
+
+.shiny-text {
+    color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 215, 100, 0.8) 50%, transparent 70%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 4s linear infinite;
+    display: block;
+}
+
+@keyframes shine { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.dot-anim { display: inline-block; animation: dotPulse 1.5s infinite; opacity: 0; }
+.dot-anim:nth-child(2) { animation-delay: 0.2s; }
+.dot-anim:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotPulse { 0%, 100% { opacity: 0.2; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-2px); } }
+.splash-cursor { display: inline-block; width: 8px; height: 1.2em; background: rgba(255, 215, 100, 0.7); margin-left: 8px; animation: blink 1s infinite; vertical-align: middle; }
+@keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+#box input{ color: #000 !important; }
+
+@media print {
+    #box, .box, .Zmxtcf, .e5IPTd, [title*="conversar com o Phill"], button[aria-label="Pedir para Gemini"] {
+        display: none !important;
+    }
+}
+@media (min-width: 769px) {
+    .box { display: flex !important; }
+    .Zmxtcf { display: block !important; }
+}
